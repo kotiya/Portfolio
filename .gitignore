@@ -27,3 +27,11 @@ yarn-error.log*
 
 Server/node_modules
 Server/config.js
+# next.js
+/.next/
+/out/
+*.pem
+# debug
+# local env files
+# vercel
+.vercel
