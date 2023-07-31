@@ -19,18 +19,7 @@ function AboutCard() {
             <br />
             Apart from coding, some other activities that I love to do!
           </p>
-          <ul>
-            <li className="about-activity">
-              <ImPointRight /> Playing Games
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Writing Tech Blogs
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Travelling
-            </li>
-          </ul>
-
+          <ActivitiesList />
           <p style={{ color: "rgb(155 126 172)" }}>
             "Strive to build things that make a difference!"{" "}
           </p>
@@ -38,6 +27,24 @@ function AboutCard() {
         </blockquote>
       </Card.Body>
     </Card>
+  );
+}
+
+function ActivitiesList() {
+  return (
+    <ul>
+      <ActivityListItem text="Playing Games" />
+      <ActivityListItem text="Writing Tech Blogs" />
+      <ActivityListItem text="Travelling" />
+    </ul>
+  );
+}
+
+function ActivityListItem({ text }) {
+  return (
+    <li className="about-activity">
+      <ImPointRight /> {text}
+    </li>
   );
 }
 
