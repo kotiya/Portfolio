@@ -1,29 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import AboutCard from "./AboutCard";
 import Techstack from "./Techstack";
 import Toolstack from "./Toolstack";
 import Github from "./Github";
-import Image from "next/image";
 import laptopImg from "../../Assets/about.png";
-import { useRouter } from "next/router";
-import Link from "next/link";
 
 function About() {
-  useEffect(() => {
-    window.addEventListener("load", setTimestamp);
-    return () => {
-      window.removeEventListener("load", setTimestamp);
-    };
-  }, []);
-
-  const setTimestamp = () => {
-    // your code here
-  };
-
-  const { push: fn_name } = useRouter();
-
   return (
     <Container fluid className="about-section">
       <Particle />
@@ -47,13 +31,7 @@ function About() {
             style={{ paddingTop: "120px", paddingBottom: "50px" }}
             className="about-img"
           >
-            <Image
-              alt="about"
-              src={laptopImg}
-              className="img-fluid"
-              width={500}
-              height={500}
-            />
+            <img src={laptopImg} alt="about" className="img-fluid" />
           </Col>
         </Row>
         <h1 className="project-heading">
