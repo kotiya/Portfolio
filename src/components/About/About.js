@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useRouter } from "next/router";
+import Image from "next/image";
 import Particle from "../Particle";
 import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
 import Toolstack from "./Toolstack";
+import AboutSection from "./AboutSection";
+import ProfessionalSkillset from "./ProfessionalSkillset";
+import ToolsUsed from "./ToolsUsed";
 
 function About() {
+  const { push } = useRouter();
+
+  useEffect(() => {
+    const setTimestamp = () => {
+      // Add your logic here
+    };
+
+    window.addEventListener("load", setTimestamp);
+
+    return () => {
+      window.removeEventListener("load", setTimestamp);
+    };
+  }, []);
+
   return (
     <Container fluid className="about-section">
       <Particle />
@@ -31,20 +50,12 @@ function About() {
             style={{ paddingTop: "120px", paddingBottom: "50px" }}
             className="about-img"
           >
-            <img src={laptopImg} alt="about" className="img-fluid" />
+            <Image src={laptopImg} alt="about" className="img-fluid" />
           </Col>
         </Row>
-        <h1 className="project-heading">
-          Professional <strong className="purple">Skillset </strong>
-        </h1>
-
-        <Techstack />
-
-        <h1 className="project-heading">
-          <strong className="purple">Tools</strong> I use
-        </h1>
-        <Toolstack />
-
+        <AboutSection />
+        <ProfessionalSkillset />
+        <ToolsUsed />
         <Github />
       </Container>
     </Container>
