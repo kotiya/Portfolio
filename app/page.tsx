@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import Link from "next/link";
+
+// use client
+// Migrated from CRA to Next.js
 
 function Home() {
+  useEffect(() => {
+    window.addEventListener("load", setTimestamp);
+    return () => {
+      window.removeEventListener("load", setTimestamp);
+    };
+  }, []);
+
+  const { push: navigate } = useRouter();
+
   return (
     <section>
       <Container fluid className="home-section" id="home">
@@ -31,9 +46,9 @@ function Home() {
             </Col>
 
             <Col md={5} style={{ paddingBottom: 20 }}>
-              <img
-                src={homeLogo}
+              <Image
                 alt="home pic"
+                src={homeLogo}
                 className="img-fluid"
                 style={{ maxHeight: "450px" }}
               />
