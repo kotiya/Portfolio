@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import { ImPointRight } from "react-icons/im";
 
@@ -19,18 +19,7 @@ function AboutCard() {
             <br />
             Apart from coding, some other activities that I love to do!
           </p>
-          <ul>
-            <li className="about-activity">
-              <ImPointRight /> Playing Games
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Writing Tech Blogs
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Travelling
-            </li>
-          </ul>
-
+          <ActivitiesList />
           <p style={{ color: "rgb(155 126 172)" }}>
             "Strive to build things that make a difference!"{" "}
           </p>
@@ -39,6 +28,26 @@ function AboutCard() {
       </Card.Body>
     </Card>
   );
+}
+
+function ActivitiesList() {
+  return (
+    <ul>
+      <ActivityItem>
+        <ImPointRight /> Playing Games
+      </ActivityItem>
+      <ActivityItem>
+        <ImPointRight /> Writing Tech Blogs
+      </ActivityItem>
+      <ActivityItem>
+        <ImPointRight /> Travelling
+      </ActivityItem>
+    </ul>
+  );
+}
+
+function ActivityItem({ children }) {
+  return <li className="about-activity">{children}</li>;
 }
 
 export default AboutCard;
