@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-} from "react-icons/ai";
+import { AiFillGithub, AiOutlineTwitter, AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import Link from "next/link";
 
 function Home2() {
+  useEffect(() => {
+    window.addEventListener("load", setTimestamp);
+    return () => {
+      window.removeEventListener("load", setTimestamp);
+    };
+  }, []);
+
+  const setTimestamp = () => {
+    // code to set timestamp
+  };
+
+  const { push: fn_name } = useRouter();
+
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
@@ -32,9 +43,7 @@ function Home2() {
               <i>
                 <b className="purple">Web Technologies and Products </b> and
                 also in areas related to{" "}
-                <b className="purple">
-                  Blockchain.
-                </b>
+                <b className="purple">Blockchain.</b>
               </i>
               <br />
               <br />
@@ -54,7 +63,13 @@ function Home2() {
           </Col>
           <Col md={4} className="myAvtar">
             <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
+              <Image
+                alt="avatar"
+                src="/Assets/avatar.svg"
+                className="img-fluid"
+                width={200}
+                height={200}
+              />
             </Tilt>
           </Col>
         </Row>
@@ -112,4 +127,5 @@ function Home2() {
     </Container>
   );
 }
+
 export default Home2;
