@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
@@ -8,8 +8,24 @@ import {
   AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import Link from "next/link";
 
 function Home2() {
+  const { push } = useRouter();
+
+  useEffect(() => {
+    window.addEventListener("load", setTimestamp);
+    return () => {
+      window.removeEventListener("load", setTimestamp);
+    };
+  }, []);
+
+  const setTimestamp = () => {
+    // Functionality for setting timestamp
+  };
+
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
@@ -54,7 +70,7 @@ function Home2() {
           </Col>
           <Col md={4} className="myAvtar">
             <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
+              <Image src={myImg} className="img-fluid" alt="avatar" />
             </Tilt>
           </Col>
         </Row>
@@ -112,4 +128,5 @@ function Home2() {
     </Container>
   );
 }
+
 export default Home2;
