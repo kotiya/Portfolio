@@ -1,18 +1,19 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+import React, { useState, useEffect } from "react";
+import { Container, Row } from "react-bootstrap";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import HomeHeaderClientComponent from "./HomeHeaderClientComponent";
 import HomeImageClientComponent from "./HomeImageClientComponent";
 
-export default async function Home() {
-  const supabase = createServerComponentClient<Database>({ cookies });
+const HomeClientComponent = () => {
+  const [mounted, setMounted] = useState(false);
+  const [items, setItems] = useState([]);
 
-  // Fetch data from the server
-  const { data: items } = await supabase
-    .from("getItems")
-    .select()
-    .match({ is_complete: false });
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <section>
@@ -28,4 +29,6 @@ export default async function Home() {
       <Home2 />
     </section>
   );
-}
+};
+
+export default HomeClientComponent;

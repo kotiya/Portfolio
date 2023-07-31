@@ -1,15 +1,25 @@
-import React from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
-import Tilt from "react-parallax-tilt";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-} from "react-icons/ai";
+import Image from "next/image";
+import { AiFillGithub, AiOutlineTwitter, AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import Link from "next/link";
 
-function Home2() {
+const Home2 = () => {
+  const { push: fn_name } = useRouter();
+
+  useEffect(() => {
+    window.addEventListener("load", setTimestamp);
+    return () => {
+      window.removeEventListener("load", setTimestamp);
+    };
+  }, []);
+
+  const setTimestamp = () => {
+    // code to set timestamp
+  };
+
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
@@ -32,9 +42,7 @@ function Home2() {
               <i>
                 <b className="purple">Web Technologies and Products </b> and
                 also in areas related to{" "}
-                <b className="purple">
-                  Blockchain.
-                </b>
+                <b className="purple">Blockchain.</b>
               </i>
               <br />
               <br />
@@ -53,9 +61,13 @@ function Home2() {
             </p>
           </Col>
           <Col md={4} className="myAvtar">
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
-            </Tilt>
+            <Image
+              alt="avatar"
+              src={myImg}
+              className="img-fluid"
+              width={200}
+              height={200}
+            />
           </Col>
         </Row>
         <Row>
@@ -108,8 +120,63 @@ function Home2() {
             </ul>
           </Col>
         </Row>
+        <Row>
+          <Col md={12} className="home-about-social">
+            <h1>FIND ME ON</h1>
+            <p>
+              Feel free to <span className="purple">connect </span>with me
+            </p>
+            <ul className="home-about-social-links">
+              <li className="social-icons">
+                <Link href="https://github.com/soumyajit4419">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    className="icon-colour  home-social-icons"
+                  >
+                    <AiFillGithub />
+                  </a>
+                </Link>
+              </li>
+              <li className="social-icons">
+                <Link href="https://twitter.com/Soumyajit4419">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    className="icon-colour  home-social-icons"
+                  >
+                    <AiOutlineTwitter />
+                  </a>
+                </Link>
+              </li>
+              <li className="social-icons">
+                <Link href="https://www.linkedin.com/in/soumyajit4419/">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    className="icon-colour  home-social-icons"
+                  >
+                    <FaLinkedinIn />
+                  </a>
+                </Link>
+              </li>
+              <li className="social-icons">
+                <Link href="https://www.instagram.com/soumyajit4419">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    className="icon-colour home-social-icons"
+                  >
+                    <AiFillInstagram />
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          </Col>
+        </Row>
       </Container>
     </Container>
   );
-}
+};
+
 export default Home2;

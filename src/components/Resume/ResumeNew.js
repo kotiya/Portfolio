@@ -1,18 +1,91 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
-import pdf from "../../Assets/../Assets/Soumyajit_Behera-BIT_MESRA.pdf";
-import { AiOutlineDownload } from "react-icons/ai";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+import ResumeNewDownloadButtonClientComponent from "./ResumeNewDownloadButtonClientComponent";
+import ResumeNewDocumentClientComponent from "./ResumeNewDocumentClientComponent";
 
 function ResumeNew() {
-  const [width, setWidth] = useState(1200);
+  return (
+    <div>
+      <Container fluid className="resume-section">
+        <Particle />
+        <Row style={{ justifyContent: "center", position: "relative" }}>
+          <ResumeNewDownloadButtonClientComponent />
+        </Row>
+
+        <Row className="resume">
+          <ResumeNewDocumentClientComponent />
+        </Row>
+
+        <Row style={{ justifyContent: "center", position: "relative" }}>
+          <ResumeNewDownloadButtonClientComponent />
+        </Row>
+      </Container>
+    </div>
+  );
+}
+
+export default ResumeNew;
+
+// Server Component
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import ResumeNewDownloadButtonClientComponent from "./ResumeNewDownloadButtonClientComponent";
+import ResumeNewDocumentClientComponent from "./ResumeNewDocumentClientComponent";
+
+export default async function ResumeNew() {
+  const supabase = createServerComponentClient<Database>({ cookies });
+
+  // Fetch data from the server
+  const { data: resumeData } = await supabase
+    .from("resumeData")
+    .select()
+    .match({ is_complete: false });
+
+  return (
+    <div>
+      <Container fluid className="resume-section">
+        <Particle />
+        <Row style={{ justifyContent: "center", position: "relative" }}>
+          <ResumeNewDownloadButtonClientComponent />
+        </Row>
+
+        <Row className="resume">
+          <ResumeNewDocumentClientComponent data={resumeData} />
+        </Row>
+
+        <Row style={{ justifyContent: "center", position: "relative" }}>
+          <ResumeNewDownloadButtonClientComponent />
+        </Row>
+      </Container>
+    </div>
+  );
+}
+
+// Client Component
+import React, { useState, useEffect } from "react";
+import ResumeNewDownloadButtonClientComponent from "./ResumeNewDownloadButtonClientComponent";
+import ResumeNewDocumentClientComponent from "./ResumeNewDocumentClientComponent";
+
+function ResumeNew() {
+  const [resumeData, setResumeData] = useState([]);
 
   useEffect(() => {
-    setWidth(window.innerWidth);
+    // Fetch data from the client
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/resumeData");
+        if (!response.ok) {
+          throw new Error("HTTP error " + response.status);
+        }
+        const data = await response.json();
+        setResumeData(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -20,33 +93,15 @@ function ResumeNew() {
       <Container fluid className="resume-section">
         <Particle />
         <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
+          <ResumeNewDownloadButtonClientComponent />
         </Row>
 
         <Row className="resume">
-          <Document file={pdf} className="d-flex justify-content-center">
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
-          </Document>
+          <ResumeNewDocumentClientComponent data={resumeData} />
         </Row>
 
         <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
+          <ResumeNewDownloadButtonClientComponent />
         </Row>
       </Container>
     </div>
