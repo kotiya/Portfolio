@@ -1,6 +1,6 @@
 import React from "react";
 
-function Home2() {
+function Particle() {
   return (
     <div>
       {/* Add your code here */}
@@ -8,4 +8,4 @@ function Home2() {
   );
 }
 
-export default Home2;
+export default Particle;
