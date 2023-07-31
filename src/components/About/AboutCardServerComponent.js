@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const AboutCard = () => {
+const AboutCardServerComponent = () => {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
@@ -27,13 +27,7 @@ const AboutCard = () => {
             <br />
             Apart from coding, some other activities that I love to do!
           </p>
-          <ul>
-            {activities.map((activity) => (
-              <li key={activity.id} className="about-activity">
-                <ImPointRight /> {activity.name}
-              </li>
-            ))}
-          </ul>
+          <AboutCardClientComponent activities={activities} />
 
           <p style={{ color: "rgb(155 126 172)" }}>
             "Strive to build things that make a difference!"{" "}
@@ -45,4 +39,26 @@ const AboutCard = () => {
   );
 };
 
-export default AboutCard;
+const AboutCardClientComponent = ({ activities }) => {
+  const [isExtendedView, setIsExtendedView] = useState(false);
+
+  const toggleView = () => {
+    setIsExtendedView(!isExtendedView);
+  };
+
+  return (
+    <div>
+      <ul>
+        {activities.map((activity) => (
+          <li key={activity.id} className="about-activity">
+            <ImPointRight /> {activity.name}
+          </li>
+        ))}
+      </ul>
+
+      <button onClick={toggleView}>Toggle View</button>
+    </div>
+  );
+};
+
+export default AboutCardServerComponent;

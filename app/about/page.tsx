@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import Github from "./Github";
@@ -6,22 +6,8 @@ import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
 import Toolstack from "./Toolstack";
-import Image from "next/image";
-import Link from "next/link";
 
 function About() {
-  useEffect(() => {
-    const setTimestamp = () => {
-      // Your setTimestamp logic here
-    };
-
-    window.addEventListener("load", setTimestamp);
-
-    return () => {
-      window.removeEventListener("load", setTimestamp);
-    };
-  }, []);
-
   return (
     <Container fluid className="about-section">
       <Particle />
@@ -45,13 +31,7 @@ function About() {
             style={{ paddingTop: "120px", paddingBottom: "50px" }}
             className="about-img"
           >
-            <Image
-              alt="about"
-              src={laptopImg}
-              className="img-fluid"
-              width={500}
-              height={500}
-            />
+            <img src={laptopImg} alt="about" className="img-fluid" />
           </Col>
         </Row>
         <h1 className="project-heading">
@@ -75,14 +55,15 @@ export default About;
 
 // New Components
 
-// use client
+import React, { useState, useEffect } from 'react';
+
 const UserProfileProviderClientComponent = ({ userId, children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     fetch(`/api/users/${userId}`)
-      .then((response) => response.json())
-      .then((data) => setUser(data));
+      .then(response => response.json())
+      .then(data => setUser(data));
   }, [userId]);
 
   return (
@@ -94,31 +75,35 @@ const UserProfileProviderClientComponent = ({ userId, children }) => {
 
 export default UserProfileProviderClientComponent;
 
-// use client
+import React, { useState } from 'react';
+
 const UserProfileStatusClientComponent = () => {
-  const [status, setStatus] = useState("active");
+  const [status, setStatus] = useState('active');
 
   const changeStatus = () => {
-    setStatus(status === "active" ? "inactive" : "active");
+    setStatus(status === 'active' ? 'inactive' : 'active');
   };
 
   return (
     <button onClick={changeStatus}>
-      Set status to {status === "active" ? "inactive" : "active"}
+      Set status to {status === 'active' ? 'inactive' : 'active'}
     </button>
   );
 };
 
 export default UserProfileStatusClientComponent;
 
-// use client
+import React from 'react';
+import UserProfileProviderClientComponent from './UserProfileProviderClientComponent';
+import UserProfileStatusClientComponent from './UserProfileStatusClientComponent';
+
 const UserProfile = ({ userId }) => {
   return (
     <UserProfileProviderClientComponent userId={userId}>
       <UserContext.Consumer>
-        {(user) => (
+        {user => (
           <div>
-            <h1>{user ? user.name : "Loading..."}</h1>
+            <h1>{user ? user.name : 'Loading...'}</h1>
             <UserProfileStatusClientComponent />
           </div>
         )}

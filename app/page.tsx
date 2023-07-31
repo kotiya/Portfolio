@@ -1,29 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
-
-// use client
 
 const Home = () => {
   const [user, setUser] = useState(null);
   const [status, setStatus] = useState('active');
-  const { push: navigate } = useRouter();
 
   useEffect(() => {
     fetch(`/api/users/${userId}`)
       .then(response => response.json())
       .then(data => setUser(data));
-
-    // useEffect for window event listener
-    const setTimestamp = () => {
-      // your code here
-    };
-
-    window.addEventListener('load', setTimestamp);
-
-    return () => {
-      window.removeEventListener('load', setTimestamp);
-    };
   }, []);
 
   const changeStatus = () => {
@@ -38,7 +22,7 @@ const Home = () => {
           <Row>
             <Col md={7} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">
-                Hi There!{' '}
+                Hi There!{" "}
                 <span className="wave" role="img" aria-labelledby="wave">
                   👋🏻
                 </span>
@@ -49,19 +33,17 @@ const Home = () => {
                 <strong className="main-name"> SOUMYAJIT BEHERA</strong>
               </h1>
 
-              <div style={{ padding: 50, textAlign: 'left' }}>
+              <div style={{ padding: 50, textAlign: "left" }}>
                 <Type />
               </div>
             </Col>
 
             <Col md={5} style={{ paddingBottom: 20 }}>
-              <Image
-                alt="home pic"
+              <img
                 src={homeLogo}
+                alt="home pic"
                 className="img-fluid"
-                style={{ maxHeight: '450px' }}
-                width={500}
-                height={500}
+                style={{ maxHeight: "450px" }}
               />
             </Col>
           </Row>
