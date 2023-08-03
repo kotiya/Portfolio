@@ -1,9 +1,10 @@
+'use client'
 import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Particle from "../Particle";
-import pdf from "../../Assets/../Assets/Soumyajit_Behera-BIT_MESRA.pdf";
-import { AiOutlineDownload } from "react-icons/ai";
+import Button from "../../src/components/Resume/react-bootstrap/Button";
+import Particle from "../../src/components/Particle";
+import pdf from "../../src/components/Resume/public/Assets/Soumyajit_Behera-BIT_MESRA.pdf";
+import { AiOutlineDownload } from "../../src/components/Resume/react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
