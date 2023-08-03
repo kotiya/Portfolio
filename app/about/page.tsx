@@ -1,11 +1,11 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Particle from "../Particle";
-import Github from "./Github";
-import Techstack from "./Techstack";
-import Aboutcard from "./AboutCard";
-import laptopImg from "../../Assets/about.png";
-import Toolstack from "./Toolstack";
+import React from "../../src/components/About/react";
+import { Container, Row, Col } from "../../src/components/About/react-bootstrap";
+import Particle from "../../src/components/Particle";
+import Github from "../../src/components/About/Github";
+import Techstack from "../../src/components/About/Techstack";
+import Aboutcard from "../../src/components/About/AboutCard";
+import laptopImg from "../../src/components/About/public/Assets/about.png";
+import Toolstack from "../../src/components/About/Toolstack";
 
 function About() {
   return (
