@@ -11,18 +11,23 @@ import {
 function Toolstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+      {/* macOS icon */}
       <Col xs={4} md={2} className="tech-icons">
         <SiMacos />
       </Col>
+      {/* Visual Studio Code icon */}
       <Col xs={4} md={2} className="tech-icons">
         <SiVisualstudiocode />
       </Col>
+      {/* Postman icon */}
       <Col xs={4} md={2} className="tech-icons">
         <SiPostman />
       </Col>
+      {/* Slack icon */}
       <Col xs={4} md={2} className="tech-icons">
         <SiSlack />
       </Col>
+      {/* Vercel icon */}
       <Col xs={4} md={2} className="tech-icons">
         <SiVercel />
       </Col>

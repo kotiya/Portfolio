@@ -21,6 +21,7 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          {/* Chatify Project */}
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={chatify}
@@ -32,6 +33,7 @@ function Projects() {
             />
           </Col>
 
+          {/* Bits-0f-C0de Project */}
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={bitsOfCode}
@@ -43,6 +45,7 @@ function Projects() {
             />
           </Col>
 
+          {/* Editor.io Project */}
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={editor}
@@ -54,6 +57,7 @@ function Projects() {
             />
           </Col>
 
+          {/* Plant AI Project */}
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={leaf}
@@ -65,6 +69,7 @@ function Projects() {
             />
           </Col>
 
+          {/* Ai For Social Good Project */}
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={suicide}
@@ -76,6 +81,7 @@ function Projects() {
             />
           </Col>
 
+          {/* Face Recognition and Emotion Detection Project */}
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={emotion}

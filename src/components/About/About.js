@@ -21,9 +21,11 @@ function About() {
               paddingBottom: "50px",
             }}
           >
+            {/* Heading */}
             <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
               Know Who <strong className="purple">I'M</strong>
             </h1>
+            {/* About Card */}
             <Aboutcard />
           </Col>
           <Col
@@ -31,20 +33,23 @@ function About() {
             style={{ paddingTop: "120px", paddingBottom: "50px" }}
             className="about-img"
           >
+            {/* About Image */}
             <img src={laptopImg} alt="about" className="img-fluid" />
           </Col>
         </Row>
+        {/* Professional Skillset */}
         <h1 className="project-heading">
           Professional <strong className="purple">Skillset </strong>
         </h1>
-
+        {/* Techstack */}
         <Techstack />
-
+        {/* Tools I use */}
         <h1 className="project-heading">
           <strong className="purple">Tools</strong> I use
         </h1>
+        {/* Toolstack */}
         <Toolstack />
-
+        {/* Github */}
         <Github />
       </Container>
     </Container>

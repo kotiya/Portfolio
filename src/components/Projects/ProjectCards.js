@@ -37,4 +37,18 @@ function ProjectCards(props) {
     </Card>
   );
 }
+
 export default ProjectCards;
+
+// This component represents a card that displays information about a project.
+// It receives the following props:
+// - imgPath: the path to the image of the project
+// - title: the title of the project
+// - description: the description of the project
+// - ghLink: the link to the GitHub repository of the project
+// - isBlog: a boolean indicating whether the link is for a blog or a GitHub repository
+// - demoLink: the link to the demo of the project (optional)
+
+// The component renders a Card from the react-bootstrap library.
+// It displays the project image, title, and description.
+// It also renders a Button with the GitHub link, and if the component is not a blog and has a demo link, it renders a Button with the demo link as well.

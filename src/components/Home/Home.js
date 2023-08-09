@@ -8,10 +8,12 @@ import Type from "./Type";
 function Home() {
   return (
     <section>
+      {/* Home section */}
       <Container fluid className="home-section" id="home">
         <Particle />
         <Container className="home-content">
           <Row>
+            {/* Home header */}
             <Col md={7} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">
                 Hi There!{" "}
@@ -26,10 +28,12 @@ function Home() {
               </h1>
 
               <div style={{ padding: 50, textAlign: "left" }}>
+                {/* Typing animation */}
                 <Type />
               </div>
             </Col>
 
+            {/* Home image */}
             <Col md={5} style={{ paddingBottom: 20 }}>
               <img
                 src={homeLogo}
@@ -41,6 +45,7 @@ function Home() {
           </Row>
         </Container>
       </Container>
+      {/* Second section of home */}
       <Home2 />
     </section>
   );

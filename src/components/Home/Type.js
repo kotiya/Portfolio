@@ -6,14 +6,14 @@ function Type() {
     <Typewriter
       options={{
         strings: [
-          "Software Developer",
-          "Freelancer",
-          "MERN Stack Developer",
-          "Open Source Contributor",
+          "Software Developer", // Displayed text for the first animation
+          "Freelancer", // Displayed text for the second animation
+          "MERN Stack Developer", // Displayed text for the third animation
+          "Open Source Contributor", // Displayed text for the fourth animation
         ],
-        autoStart: true,
-        loop: true,
-        deleteSpeed: 50,
+        autoStart: true, // Automatically starts the typewriter animation
+        loop: true, // Loops the animation indefinitely
+        deleteSpeed: 50, // Speed at which characters are deleted (in milliseconds)
       }}
     />
   );

@@ -20,6 +20,7 @@ function ResumeNew() {
       <Container fluid className="resume-section">
         <Particle />
         <Row style={{ justifyContent: "center", position: "relative" }}>
+          {/* Button to download CV */}
           <Button
             variant="primary"
             href={pdf}
@@ -32,12 +33,14 @@ function ResumeNew() {
         </Row>
 
         <Row className="resume">
+          {/* Display the PDF document */}
           <Document file={pdf} className="d-flex justify-content-center">
             <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
           </Document>
         </Row>
 
         <Row style={{ justifyContent: "center", position: "relative" }}>
+          {/* Button to download CV */}
           <Button
             variant="primary"
             href={pdf}

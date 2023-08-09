@@ -53,3 +53,9 @@ function Particle() {
 }
 
 export default Particle;
+
+// This component renders a particle effect using the react-tsparticles library.
+// It creates a canvas element with particles that move in a specified direction and speed.
+// The number of particles, density, and size can be customized.
+// The particles can also have interactivity, such as onclick events.
+// The retina_detect property enables high-resolution rendering on retina displays.

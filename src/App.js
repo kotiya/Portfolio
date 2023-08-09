@@ -30,17 +30,26 @@ function App() {
 
   return (
     <Router>
+      {/* Preloader component to show a loading screen */}
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
+        {/* Navbar component */}
         <Navbar />
+        {/* ScrollToTop component to scroll to top on route change */}
         <ScrollToTop />
         <Routes>
+          {/* Home component */}
           <Route path="/" element={<Home />} />
+          {/* Projects component */}
           <Route path="/project" element={<Projects />} />
+          {/* About component */}
           <Route path="/about" element={<About />} />
+          {/* Resume component */}
           <Route path="/resume" element={<Resume />} />
+          {/* Redirect to home if route doesn't match */}
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
+        {/* Footer component */}
         <Footer />
       </div>
     </Router>

@@ -42,3 +42,12 @@ function AboutCard() {
 }
 
 export default AboutCard;
+
+// This component represents the About section of a web page.
+// It displays information about the author and their interests.
+// The component uses React Bootstrap Card and React Icons libraries.
+// The content is wrapped in a Card component for styling purposes.
+// The author's name and location are displayed using the purple color.
+// The component also includes a list of activities the author loves to do.
+// Each activity is represented by an icon from the React Icons library.
+// The component ends with a quote and the author's name as the footer.

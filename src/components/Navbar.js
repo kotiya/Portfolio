@@ -20,6 +20,7 @@ function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
 
+  // Function to handle scroll event
   function scrollHandler() {
     if (window.scrollY >= 20) {
       updateNavbar(true);
@@ -28,6 +29,7 @@ function NavBar() {
     }
   }
 
+  // Add scroll event listener
   window.addEventListener("scroll", scrollHandler);
 
   return (
@@ -53,12 +55,14 @@ function NavBar() {
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
+            {/* Home link */}
             <Nav.Item>
               <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
                 <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
               </Nav.Link>
             </Nav.Item>
 
+            {/* About link */}
             <Nav.Item>
               <Nav.Link
                 as={Link}
@@ -69,6 +73,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
+            {/* Projects link */}
             <Nav.Item>
               <Nav.Link
                 as={Link}
@@ -82,6 +87,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
+            {/* Resume link */}
             <Nav.Item>
               <Nav.Link
                 as={Link}
@@ -92,6 +98,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
+            {/* Blogs link */}
             <Nav.Item>
               <Nav.Link
                 href="https://soumyajitblogs.vercel.app/"
@@ -102,6 +109,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
+            {/* Fork button */}
             <Nav.Item className="fork-btn">
               <Button
                 href="https://github.com/soumyajit4419/Portfolio"

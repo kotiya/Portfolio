@@ -112,4 +112,21 @@ function Home2() {
     </Container>
   );
 }
+
 export default Home2;
+
+// This component represents the second section of the home page.
+// It displays information about the developer and provides links to their social media profiles.
+
+// The component imports necessary dependencies and assets.
+
+// The Home2 function returns the JSX code that represents the section.
+// It uses the react-bootstrap library for responsive layout and styling.
+
+// The section is divided into two columns: one for the description and one for the avatar image.
+// The description column contains a heading and a paragraph that describes the developer's skills and interests.
+
+// The avatar image is wrapped in a Tilt component from the react-parallax-tilt library, which adds a parallax effect to the image.
+
+// The section also includes a social media links section at the bottom, which contains icons for GitHub, Twitter, LinkedIn, and Instagram.
+// Each icon is wrapped in an anchor tag that links to the respective social media profile.
