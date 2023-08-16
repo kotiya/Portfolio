@@ -1,12 +1,15 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname, useSearchParams } from "next/navigation";
 
-function ScrollToTop() {
-  const { pathname } = useLocation();
+function NavigationEvents() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
   return null;
 }
 
-export default ScrollToTop;
+export default NavigationEvents;
