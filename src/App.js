@@ -6,19 +6,16 @@ import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate
-} from "react-router-dom";
+import { useRouter } from "next/router";
 import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Link from 'next/link';
 
 function App() {
   const [load, upadateLoad] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,21 +26,31 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <div>
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Projects />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="*" element={<Navigate to="/"/>} />
-        </Routes>
+        <div>
+          <Link href="/">
+            <a><Home /></a>
+          </Link>
+          <Link href="/project">
+            <a><Projects /></a>
+          </Link>
+          <Link href="/about">
+            <a><About /></a>
+          </Link>
+          <Link href="/resume">
+            <a><Resume /></a>
+          </Link>
+          <Link href="/">
+            <a>{router.push("/")}</a>
+          </Link>
+        </div>
         <Footer />
       </div>
-    </Router>
+    </div>
   );
 }
 
