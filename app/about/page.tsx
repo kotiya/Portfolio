@@ -1,11 +1,12 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Particle from "../Particle";
-import Github from "./Github";
-import Techstack from "./Techstack";
-import Aboutcard from "./AboutCard";
-import laptopImg from "../../Assets/about.png";
-import Toolstack from "./Toolstack";
+import Particle from "../../src/components/Particle";
+import Github from "../../src/components/About/Github";
+import Techstack from "../../src/components/About/Techstack";
+import Aboutcard from "../../src/components/About/AboutCard";
+import Image from 'next/image';
+import laptopImg from "public/Assets/about.png";
+import Toolstack from "../../src/components/About/Toolstack";
 
 function About() {
   return (
@@ -31,7 +32,7 @@ function About() {
             style={{ paddingTop: "120px", paddingBottom: "50px" }}
             className="about-img"
           >
-            <img src={laptopImg} alt="about" className="img-fluid" />
+            <Image src={laptopImg} alt="about" className="img-fluid" />
           </Col>
         </Row>
         <h1 className="project-heading">
